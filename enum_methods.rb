@@ -55,7 +55,7 @@ module Enumerable
 		end
 	end
 
-	def my_map
+	def my_map(&block)
 		a = []
 		for i in 0..(self.length-1)
 	 		a << yield(self[i]) 
@@ -63,7 +63,19 @@ module Enumerable
 	 	a
 	end
 
-	
+	def inject
+		a = self[0]
+		for i in 1..self.length-1
+			a = yield(a,self[i])
+		end
+		a
+	end
+
+	def multiply_els 
+		self.inject {|x,y| x*y}
+	end
+
+
 end
 
 
