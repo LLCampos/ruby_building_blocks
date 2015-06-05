@@ -11,3 +11,4 @@ def stock_picker(a)
 	end
 	p v
 end
+
